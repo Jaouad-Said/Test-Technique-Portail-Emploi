@@ -1,0 +1,39 @@
+﻿@model Portail_Emploi.Models.Resume
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Resume</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form enctype="multipart/form-data" asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ID_Candidat" class="control-label"></label>
+                <select asp-for="ID_Candidat" class="form-control" asp-items="ViewBag.ID_Candidat"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for= "CVurl" class= "control-label" ></label>
+                <div class= "cusotom-file">
+                    <input asp-for= "CVurl" class= "cusotom-file" id= "CVImage">
+                    <label class= "cusotom-file-label" for= "CVImage" ></label>
+                </div>  
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
